@@ -1,2 +1,2 @@
 # Homeworks
-My SEDC Homeworks
+SEDC Homeworks
