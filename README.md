@@ -1,3 +1,3 @@
 # Homeworks
 SEDC Homeworks
-Github examples
+None of that
