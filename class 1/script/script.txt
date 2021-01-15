@@ -1,0 +1,43 @@
+
+// Domasna od prezentacii
+
+ let iphone = 119.95;
+ let quantity = 30;
+ let tax = 5;
+ let result =  (iphone * tax / 100  + iphone) * quantity
+ console.log("total " + result + "$");
+
+//  Extra homework 
+
+// 1. Calculate the reminder of two numbers.
+
+let num1 = 115;
+let num2 = 22;
+let sum = num1 % num2;
+console.log("reminder = " + sum);
+
+// 2. The farm problem
+
+let chickens = 5;
+let cows = 10;
+let pigs = 15;
+
+let chickenLegs = chickens * 2;
+let cowLegs = cows * 4;
+let pigLegs = pigs * 4;
+
+let totalLegs = chickenLegs + cowLegs + pigLegs ;
+console.log("total legs = " + totalLegs);
+
+// 3. Given two sides of rectangle a and b calculate the perimeter of the rectangle.
+
+let sideA = 4;
+let sideB = 8;
+let perimeter = 2*(sideA+sideB);
+console.log("perimeter of the rectangle is " + perimeter);
+
+// 4. Calculate the height of equilateral triangle.
+
+let triangleSide = 4;
+let triangleHeight = (1/2) * Math.sqrt(3) * triangleSide;
+console.log("height of equilateral triangle is " + triangleHeight);

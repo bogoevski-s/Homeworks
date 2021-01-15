@@ -1,0 +1,10 @@
+h1 {
+    text-align: center;
+    color: rgb(112, 112, 112);
+}
+p {
+    text-align: center;
+    display: block;
+    width: 60%;
+    margin: 40px auto;
+}
