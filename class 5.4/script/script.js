@@ -1,14 +1,15 @@
 //    HOMEWORK  # 1
 
 let input = ["Hello", "there", "students", "of", "SEDC", "!"];
-let sumStr = "";
 function stringPlus(input) {
+    let sumStr = "";
     for (let i = 0; i < input.length; i++) {
         sumStr = sumStr.concat(' ', input[i]);
         // sumStr = sumStr + " " + input[i];  -> drug nacin
     }
-    console.log(sumStr)
+    console.log(sumStr.trim())
 }
+console.log("Task 1");
 stringPlus(input);
 
 /*   Easy way :)
@@ -22,14 +23,18 @@ console.log(sumStr);
 //    HOMEWORK  # 2
 
 function loopingRange(numOne,numTwo){
+    var output = "";
     for(let i = numOne;i <= numTwo; i++){
+        output += i;
         if(i%2 === 0){
-            console.log(i,'\n');
+            output += '\n';
         }else{
-            console.log(i,"  ")
+            output += ' ';
         }
     }
+    console.log(output);
 }
+console.log("\nTask 2");
 loopingRange(1,20);
 
 /*  Loop only
@@ -45,21 +50,24 @@ for(let i = 1; i <= 20; i++){
 
 // HOMEWORK  # 3
 
-let someArray = ["atanas", 11, 31, true, 15, 2, 20, 7, 9];
-let result = 0;
+let someArray = ["atanas", 1, 31, true, 15, 2, 20, 7, 9];
 let min = 0;
 let max = 0;
+let hasNumber = false;
 function minMax(someArray) {
+    let result = 0;
     for (let i = 0; i < someArray.length; i++) {
-        if (typeof (someArray[i]) !== 'number') {
-            let index = someArray.indexOf(someArray[i]);
-            someArray.splice(index, 1)
-            console.log(`This function does not support other types`);
-        } else if (max < someArray[i]) {
-            max = someArray[i];
-            min = max;
-        } else if (someArray[i] < min) {
-            min = someArray[i];
+        if (typeof (someArray[i]) === 'number') {
+            if(!hasNumber){
+                min = someArray[i];
+                max = someArray[i];
+            }
+            hasNumber = true;
+            if (max < someArray[i]) {
+                max = someArray[i];
+            } else if (someArray[i] < min) {
+                min = someArray[i];
+            }
         }
     }
     console.log(`minimum num is ${min}`);
@@ -67,6 +75,7 @@ function minMax(someArray) {
     result = min + max;
     return (console.log(`The sum of the min and max is ${result}`));
 }
+console.log("\nTask 3");
 minMax(someArray);
 
 
@@ -74,14 +83,13 @@ minMax(someArray);
 
 let first = ["Bob", "Steve", "Nick", "Sebastian"];
 let last = ["Smith", "Williams", "Brown", "Johnson"];
-let firstLastName = [];
 function fullName(first, last) {
-    for (let i = 0; i < first.length; i++) {
-        firstLastName.push(first[i]);
-    }
+    let result = [];
     for (let i = 0; i < last.length; i++) {
-        firstLastName[i] = (`${i + 1}.`) + firstLastName[i].concat(' ', last[i]);
+        result.push(`${i + 1}. ${first[i]} ${last[i]}`);
     }
-    console.log(firstLastName);
+    return result;
 }
-fullName(first, last);
+console.log("\nTask 4");
+let fullNames = fullName(first, last);
+console.log(fullNames);
