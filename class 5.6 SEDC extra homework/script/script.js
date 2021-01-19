@@ -105,8 +105,9 @@ negative([]);
 // Таsк 6
 
 function diffMaxMin(input) {
-    let min = input[0];                                 
-    let max = input[0];
+
+    let min = Infinity;                                 
+    let max = -Infinity;
     let result = 0;
     for (let i = 0; i < input.length; i++) {
         if (max < input[i]) {
@@ -123,7 +124,7 @@ function diffMaxMin(input) {
     // return (console.log(result));
 }
 console.log(`\nTask 6`);
-diffMaxMin([10, 4, 1, 4, -10, -50, 32, 21]);
+diffMaxMin([-10, 4, 1, 4, -10, -50, 32, 21]);
 diffMaxMin([44, 32, 86, 19]);
 
 
@@ -145,8 +146,20 @@ MultiplyByLength([0]);
 
 // Таsк 8
 
-//  Ne ja razbiram 8-mata zadaca sto se bara vo nea ????
-
+function hurdleJump(huedleHeight,input){
+    for(let i = 0; i < huedleHeight.length; i++){
+        if(huedleHeight[i] > input){
+            return false;
+        }else if(huedleHeight[i] < input){
+            return true;
+        }
+    }
+}
+console.log(`\nTask 8`);
+hurdleJump([1, 2, 3, 4, 5],5);
+hurdleJump([5, 5, 3, 4, 5],3);
+hurdleJump([5, 4, 5, 6],10);
+hurdleJump([1, 2, 1], 1);
 
 // Таsк 9
 
