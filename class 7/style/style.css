@@ -1,0 +1,12 @@
+input{
+    width: 40px;
+}
+#rows{
+    margin-left: 40px;
+}
+#col{
+    margin-left: 17px;
+}
+#btn{
+    margin: 10px 40px;
+}
