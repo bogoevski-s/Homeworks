@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css" type="text/css">
+    <title>Practice</title>
+</head>
+
+<body>
+    <div id="mainDiv">
+        <label for="firstName">First name</label>
+        <input type="text" id="firstName">
+        <label for="lastName">Last name</label>
+        <input type="text" id="lastName">
+        <label for="city">City</label>
+        <input type="text" id="city">
+        <label for="age">Age</label>
+        <input type="number" id="age">
+        <label for="email">Email</label>
+        <input type="email" id="email">
+        <button id="btnSingUp">Sing Up</button>
+        <button id="btnShowUser">Show users</button>
+    </div>
+    <div id="displyUsers">
+        <table bgcolor="#0984FA" style="color:white">
+            <thead>
+                <tr id="trHead">
+                    <th id="sortByFirst">First Name</th>
+                    <th id="sortByLast">Last Name</th>
+                    <th>City</th>
+                    <th>Age</th>
+                    <th>E-mail</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+               
+            </tbody>
+        </table>
+        <label for="search" id="labSearch">Search</label>
+        <input type="text" id="search">
+        <button id="btnSearch">Search</button>
+    </div>
+    <button id="btnBack">Back</button>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="./script/script.js"></script>
+</body>
+
+</html>
