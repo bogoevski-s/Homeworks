@@ -1,5 +1,5 @@
 // DOM elements
-let mainDiv = $("#mainDiv")
+let mainDiv =$("#mainDiv")
 let firstName = $("#firstName");
 let lastName = $("#lastName");
 let city = $("#city");
@@ -46,12 +46,12 @@ function createUser() {
 
 // Show users click event
 btnShowUser.click(function () {
-    backBtn.css("display", "block")
+    backBtn.css("display","block")
     showAllUsers(allUsers);
 })
 function showAllUsers(arrOfObj) {
-    mainDiv.css("display", "none");
-    displyUsers.css("display", "block")
+    mainDiv.css("display","none");
+    displyUsers.css("display","block")
     $("#tableBody").html(``);
     for (item of arrOfObj) {
         $("#tableBody").append(`<tr>
@@ -65,27 +65,25 @@ function showAllUsers(arrOfObj) {
 }
 
 // Search click event
-btnSearch.click(function () {
+btnSearch.click(function(){
     search();
 })
-function search() {
+function search(){
     $("#tableBody").html(``);
-    for (item of allUsers) {
-        if (inputSearch.val().toLowerCase() === item.firstName.toLowerCase()) {
+    for(item of allUsers){
+        if(inputSearch.val().toLowerCase() === item.firstName.toLowerCase()){
             searchItem();
-        } else if (inputSearch.val().toLowerCase() === item.lastName.toLowerCase()) {
+        }else if(inputSearch.val().toLowerCase() === item.lastName.toLowerCase()){
             searchItem();
-        } else if (inputSearch.val().toLowerCase() === item.age.toLowerCase()) {
+        }else if(inputSearch.val().toLowerCase() === item.age.toLowerCase()){
             searchItem();
-        } else if (inputSearch.val().toLowerCase() === item.city.toLowerCase()) {
+        }else if(inputSearch.val().toLowerCase() === item.city.toLowerCase()){
             searchItem();
-        } else if(inputSearch.val().toLowerCase() === ""){
-            showAllUsers(allUsers)
         }
     }
 }
 // Display search
-function searchItem() {
+function searchItem(){
     $("#tableBody").append(`<tr>
     <td>${item.firstName}</td>
     <td>${item.lastName}</td>
@@ -96,8 +94,8 @@ function searchItem() {
 }
 
 // Back button click event
-backBtn.click(function () {
-    mainDiv.css("display", "block");
-    displyUsers.css("display", "none");
-    backBtn.css("display", "none");
+backBtn.click(function(){
+    mainDiv.css("display","block");
+    displyUsers.css("display","none");
+    backBtn.css("display","none");
 })
