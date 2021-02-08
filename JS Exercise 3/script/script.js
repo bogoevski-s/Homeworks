@@ -7,18 +7,20 @@ let addButton = $("#btnAdd");
 let showButton = $("#btnShowAll");
 let display = $("#display")
 let tableBody = $("#tableBody")
-
+let tableFirstEl = $("#tableTitle")
 let remindersArr = [];
+let listItemColor = "";
 
 // Add event
 addButton.click(createReminder)
 
 // Create reminder  
 function createReminder() {
+    listItemColor = inputColor.val();
     function Reminder(title, priority, color, description) {
         this.title = title;
         this.priority = priority;
-        this.color = color
+        this.color = color;
         this.description = description;
     }
     let newReminder = new Reminder(inputTitle.val(), inputPriority.val(), inputColor.val(), innputDescription.val());
@@ -40,7 +42,7 @@ function showRemider() {
     for (let item of remindersArr) {
         tableBody.append(`
         <tr>
-        <td>${item.title}</td>
+        <td style="color: ${listItemColor.toLowerCase()};">${item.title}</td>
         <td>${item.priority}</td>
         <td>${item.description}</td>
         </tr>`)
