@@ -1,0 +1,60 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 4px;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url("https://images.pexels.com/photos/3244513/pexels-photo-3244513.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#divOne{
+    box-sizing: border-box;
+    display: flex;
+    height: 100%;
+    justify-content: space-around;
+    margin: 100px auto;
+}
+#tableDiv{
+    box-sizing: border-box;
+    display: flex;
+    height: 100%;
+    justify-content: space-around;
+    margin: 100px auto;
+}
+button{
+    padding: 15px;
+    background-color: rgba(0, 195, 255, 0.582);
+    border-color: rgba(0, 116, 151, 0.192);
+    box-shadow: 1px 1px 10px 3px rgb(126, 126, 126);
+    color: rgba(255, 255, 255, 0.685);
+    cursor: pointer;
+}
+button:hover{
+    color: rgb(255, 0, 0);
+    background-color: rgba(0, 195, 255, 0.74);
+    cursor: pointer;
+    box-shadow: 1px 1px 10px 3px rgb(65, 65, 65);
+    cursor: pointer;
+}
+#table{
+    display: none;
+    text-align: center;
+    border-radius: 10px;
+    border: 2px solid rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.582);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 17px;
+}
+#tHead{
+    font-weight: 500;
+    color: rgb(125, 250, 250);
+}
+#tBody{
+    color: rgb(255, 255, 255);
+}
+td{
+    padding: 10px 35px;
+}
