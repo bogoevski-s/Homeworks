@@ -19,6 +19,7 @@ let firstTaskStudents = function () {
             success: function (response) {
                 let allStudents = jQuery.parseJSON(response)
                 avrHigherThan3(allStudents);
+                console.log(allStudents)
             },
             error: function (response) {
                 console.warn("error");
@@ -47,6 +48,7 @@ function avrHigherThan3(students) {
         }
         return student.averageGrade > 3;
     })
+    console.log(studentsHigher3)
 }
 
 // TASK 2 - all female students names with an average grade of 5

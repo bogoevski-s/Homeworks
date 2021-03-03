@@ -1,168 +1,51 @@
 tableBody = $("#tableBody");
-
-searchName = $("#nameBtn");
 inputName = $("#name");
-
-searchEmail = $("#emailBtn");
-inputEmail = $("#email");
-
-searchPhone = $("#phoneBtn");
-inputPhone = $("#phone");
-
 idDisplay = $("#idResult");
 
 let allUsers;
-let usersIds = [];
-let idResults = 0;
 
-let getUsers = function (callback) {
-    $(document).ready(function () {
-        $.ajax({
-            url: "https://jsonplaceholder.typicode.com/users",
-            method: "GET",
-            success: function (response) {
-                let users = response;
-                allUsers = users
-                users.forEach(user => {
-                    tableBody.append(`
-                    <tr>
-                    <td>${user.name}</td>
-                    <td>${user.email}</td>
-                    <td>${user.phone}</td>
-                    </tr>
-                `)
-                });
-                callback(users)
-            },
-            error: function (response) {
-                console.warn("error");
-            },
-            complete: function (response) {
-
-            }
-        })
-    })
-}
-
-let searchByName = () => {
-    tableBody.html(``)
-    let searchInput = inputName.val()
-    let searchResult = allUsers.filter(user => {
-        if (searchInput.toLowerCase() === user.name.toLowerCase()) {
-            usersIds.push(user.id);
-            let totalSumOfIds = usersIds.reduce((acumulator, currentValu) => {
-                idResults = acumulator + currentValu
-
-                return idResults
-            })
-            tableBody.append(`
-            <tr>
-            <td>${user.name}</td>
-            <td>${user.email}</td>
-            <td>${user.phone}</td>
-            </tr>
-        `)
-        }
-    })
-    if (searchInput === "") {
-        let displayAll = allUsers.forEach(user => {
-            tableBody.append(`
-            <tr>
-            <td>${user.name}</td>
-            <td>${user.email}</td>
-            <td>${user.phone}</td>
-            </tr>
-        `)
-        })
+let getData = async function () {
+    try {
+        let response = await fetch("https://jsonplaceholder.typicode.com/users")
+        let users = await response.json()
+        allUsers = users
+        displayUsers(users)
     }
-    idDisplay.text(``)
-    idDisplay.text(idResults)
-    inputName.val(``)
-}
-
-let searchByEmail = () => {
-    tableBody.html(``)
-    let searchInput = inputEmail.val()
-    let searchResult = allUsers.filter(user => {
-        if (searchInput.toLowerCase() === user.email.toLowerCase()) {
-            usersIds.push(user.id);
-            let totalSumOfIds = usersIds.reduce((acumulator, currentValu) => {
-                idResults = acumulator + currentValu
-                return idResults
-            })
-            tableBody.append(`
-            <tr>
-            <td>${user.name}</td>
-            <td>${user.email}</td>
-            <td>${user.phone}</td>
-            </tr>
-        `)
-        }
-    })
-    if (searchInput === "") {
-        let displayAll = allUsers.forEach(user => {
-            tableBody.append(`
-            <tr>
-            <td>${user.name}</td>
-            <td>${user.email}</td>
-            <td>${user.phone}</td>
-            </tr>
-        `)
-        })
+    catch (error) {
+        console.warn(error)
     }
-    idDisplay.text(``)
-    idDisplay.text(idResults)
-    inputEmail.val(``)
 }
+getData()
 
-let searchByPhone = () => {
+let displayUsers = (data) => {
+    data.forEach(user => {
+        tableBody.append(`
+        <tr>
+            <td>${user.name}</td>
+            <td>${user.email}</td>
+            <td>${user.phone}</td>
+        </tr>
+    `)
+    })
+}
+inputName.on("keyup", function (e) {
     tableBody.html(``)
-    let searchInput = inputPhone.val()
-    let searchResult = allUsers.filter(user => {
-        if (searchInput.toLowerCase() === user.phone.toLowerCase()) {
-            usersIds.push(user.id);
-            let totalSumOfIds = usersIds.reduce((acumulator, currentValu) => {
-                idResults = acumulator + currentValu
-                return idResults
-            })
+    let name = e.target.value.toLowerCase();
+    let filterUsers = allUsers.filter((user) => {
+        if ((user.name.toLowerCase().indexOf(name) != -1) || (user.email.toLowerCase().indexOf(name) != -1) || (user.phone.toLowerCase().indexOf(name) != -1)) {
             tableBody.append(`
             <tr>
-            <td>${user.name}</td>
-            <td>${user.email}</td>
-            <td>${user.phone}</td>
+                <td>${user.name}</td>
+                <td>${user.email}</td>
+                <td>${user.phone}</td>
             </tr>
         `)
+            return user
+        }
+        else {
+            console.log("not found")
         }
     })
-    if (searchInput === "") {
-        let displayAll = allUsers.forEach(user => {
-            tableBody.append(`
-            <tr>
-            <td>${user.name}</td>
-            <td>${user.email}</td>
-            <td>${user.phone}</td>
-            </tr>
-        `)
-        })
-    }
-    idDisplay.text(``)
-    idDisplay.text(idResults)
-    inputPhone.val(``)
-}
-
-searchName.on("click", searchByName)
-searchEmail.on("click", searchByEmail)
-searchPhone.on("click", searchByPhone)
-
-
-
-
-
-function searchUsers(data) {
-    let searchByName = data.filter(user => {
-        if (user.name === "Leanne Graham") {
-            console.log(user)
-        }
-    })
-}
-getUsers(searchUsers)
+    let totalSumOfId = filterUsers.reduce((totalIds, user) => totalIds += user.id, 0)
+    idDisplay.text(`Sum of the ID's is ${totalSumOfId}`)
+})
