@@ -1,0 +1,15 @@
+*{
+    box-sizing: border-box;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#searchDiv{
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 50px;
+}
+#displayDiv{
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 50px;
+}
