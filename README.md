@@ -1,2 +1,2 @@
-## Homeworks
-SEDC Homeworks
+## Homework
+SEDC Homework
