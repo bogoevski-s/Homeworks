@@ -1,2 +1,2 @@
 ## Homework
-SEDC Homework
+SEDC JavaScript Homework
