@@ -42,9 +42,7 @@ inputName.on("keyup", function (e) {
         `)
             return user
         }
-        else {
-            console.log("not found")
-        }
+        else console.log("not found")
     })
     let totalSumOfId = filterUsers.reduce((totalIds, user) => totalIds += user.id, 0)
     idDisplay.text(`Sum of the ID's is ${totalSumOfId}`)
