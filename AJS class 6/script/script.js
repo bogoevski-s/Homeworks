@@ -60,9 +60,6 @@ let secondTaskStudents = function () {
             success: function (response) {
                 let allStudents = jQuery.parseJSON(response)
                 femaleNamesHigher5(allStudents);
-                // malesSkopjeOver18(allStudents);
-                // avrFemaleGrades24(allStudents);
-                // maleNameB(allStudents);
             },
             error: function (response) {
                 console.warn("error");
@@ -88,7 +85,6 @@ function femaleNamesHigher5(students) {
             <td>${student.age}</td>
             </tr>
             `)
-            // return student.firstName;
         }
     })
 }
@@ -198,7 +194,6 @@ function maleNameB(students) {
             <td>${student.age}</td>
             </tr>
             `)
-            // return student
         }
     })
 }
